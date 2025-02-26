@@ -9,6 +9,7 @@ const DBService = require('../services/DBService.js')
 const FuncionarioService = require('../services/funcionarios.js')
 
 const validarRequisicao = require('../middleware/validarRequisicao.js')
+const CarsService = require('../services/CarsService.js')
 
 // Rota de exemplo
 router.get('/', (req, res) => {
@@ -24,6 +25,7 @@ router.get('/initdb', DBService.create)
 router.get('/func', FuncionarioService.getFuncionarios)
 router.post('/func', FuncionarioService.insert)
 router.post('/login', validarRequisicao(loginSchema), FuncionarioService.login)
+router.get('/cars', CarsService.getCars)
 
 module.exports = router
 
